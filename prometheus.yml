@@ -14,7 +14,8 @@ scrape_configs:
       static_configs:
       ec2_sd_configs:
         - region: 'us-east-1'
-          role_arn: arn:aws:iam::029170231786:role/prometheus_ec2_readonly
+          access_key: AKIAQNSVONHVL3CRIB73
+          secret_key: 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
           port: 9100
       relabel_configs:
         - source_labels: [__meta_ec2_private_ip]
