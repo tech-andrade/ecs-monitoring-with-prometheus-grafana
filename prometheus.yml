@@ -11,8 +11,15 @@ scrape_configs:
           - targets: ['localhost:9090']
 
     - job_name: 'node-exporter'
+      static_configs:
       ec2_sd_configs:
         - region: 'us-east-1'
-          access_key: AKIAQNSVONHVL3CRIB73
-          secret_key: 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
+          role_arn: arn:aws:iam::029170231786:role/prometheus_ec2_readonly
           port: 9100
+      relabel_configs:
+        - source_labels: [__meta_ec2_private_ip]
+          target_label: 'private_ip'
+        - source_labels: [__meta_ec2_public_ip]
+          target_label: 'public_ip'
+        - source_labels: [__meta_ec2_instance_state]
+          target_label: 'instance_state'
