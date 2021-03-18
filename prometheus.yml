@@ -25,7 +25,6 @@ scrape_configs:
           target_label: 'instance_state'
 
     - job_name: 'cadvisor'
-    ec2_sd_configs:
       ec2_sd_configs:
         - region: 'us-east-1'
           access_key: AKIAQNSVONHVL3CRIB73
