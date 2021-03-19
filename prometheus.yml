@@ -14,7 +14,6 @@ scrape_configs:
       static_configs:
           - targets:
             - dev-gateway.verity.com.br:2001
-            - 3.222.61.138:2001
 
     - job_name: 'node-exporter'
       ec2_sd_configs:
