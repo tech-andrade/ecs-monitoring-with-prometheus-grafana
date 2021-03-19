@@ -13,7 +13,11 @@ scrape_configs:
     - job_name: 'treegateway'
       static_configs:
           - targets:
-            - treegateway:8000
+            - tree-gateway:8000
+            - dev-gateway.verity.com.br:8000
+            - tree-gateway:2001
+            - dev-gateway.verity.com.br:2001
+            - 3.222.61.138:2001
 
     - job_name: 'node-exporter'
       ec2_sd_configs:
