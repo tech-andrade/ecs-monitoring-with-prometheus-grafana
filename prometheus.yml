@@ -10,6 +10,19 @@ scrape_configs:
       static_configs:
           - targets: ['localhost:9090']
           
+    - job_name: 'redis_exporter_targets'
+      static_configs:
+        - targets:
+          - redis://treegateway-config-redis-dev.1aavrl.0001.use1.cache.amazonaws.com:6379
+      metrics_path: /scrape
+      relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: localhost:9121
+          
     - job_name: 'treegateway'
       static_configs:
           - targets:
