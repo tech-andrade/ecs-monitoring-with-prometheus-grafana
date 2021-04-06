@@ -21,7 +21,7 @@ scrape_configs:
         - source_labels: [__param_target]
           target_label: instance
         - target_label: __address__
-          replacement: localhost:9121
+          replacement: dev-gateway.verity.com.br:9121
           
     - job_name: 'treegateway'
       static_configs:
